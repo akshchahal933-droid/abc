@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Only For Savi ❤️</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+ font-family:Georgia,serif;
+ background:linear-gradient(135deg,#240b25,#641a50,#a83b72);
+ color:white;
+ text-align:center;
+ min-height:100vh;
+ overflow-x:hidden;
+}
+
+.screen{
+ min-height:100vh;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ align-items:center;
+ padding:25px;
+}
+
+.card{
+ width:100%;
+ max-width:500px;
+ padding:32px 23px;
+ border:1px solid #ffb5d577;
+ border-radius:26px;
+ background:#ffffff12;
+ box-shadow:0 0 35px #ff73b533;
+}
+
+h1{
+ color:#ffb5d5;
+ font-size:clamp(35px,8vw,48px);
+ margin:18px 0;
+}
+
+h2{color:#ffb5d5;margin:16px 0}
+
+p{line-height:2;font-size:17px}
+
+button{
+ border:0;
+ padding:14px 28px;
+ border-radius:30px;
+ color:white;
+ background:linear-gradient(90deg,#ff5b9c,#c45bcb);
+ font-size:16px;
+ cursor:pointer;
+ margin:20px 0;
+}
+
+button:hover{transform:scale(1.05)}
+
+input{
+ width:100%;
+ padding:15px;
+ border:1px solid #ffb5d5;
+ border-radius:30px;
+ text-align:center;
+ font-size:18px;
+ outline:none;
+ margin:20px 0 5px;
+}
+
+.hidden{display:none!important}
+
+.heart{
+ position:fixed;
+ bottom:-40px;
+ pointer-events:none;
+ animation:rise linear forwards;
+ z-index:10;
+}
+
+.bigheart{
+ font-size:65px;
+ animation:pulse 1.5s infinite;
+}
+
+.envelope{
+ font-size:100px;
+ animation:bounce 2s infinite;
+}
+
+#message{
+ color:#ffb5d5;
+ margin-top:15px;
+}
+
+@keyframes rise{
+ to{transform:translateY(-110vh) rotate(360deg);opacity:0}
+}
+@keyframes pulse{
+ 50%{transform:scale(1.2)}
+}
+@keyframes bounce{
+ 50%{transform:translateY(-12px)}
+}
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD SCREEN -->
+<div class="screen" id="lockScreen">
+ <div class="card">
+  <div style="font-size:65px">🔐</div>
+  <h1>Hello Savi! 👑</h1>
+  <p>
+   A little surprise is waiting for you.<br>
+   But first, answer this! 💗
+  </p>
+
+  <h2>When did our love story begin? 🥹</h2>
+
+  <input
+   type="password"
+   id="password"
+   placeholder="Enter secret password"
+   onkeydown="if(event.key==='Enter') unlock()"
+  >
+
+  <button onclick="unlock()">Unlock My Surprise 💌</button>
+
+  <p id="message"></p>
+  <p style="font-size:13px;color:#ffcadf">
+   Hint: Our special day ❤️
+  </p>
+ </div>
+</div>
+
+<!-- WELCOME SCREEN -->
+<div class="screen hidden" id="welcomeScreen">
+ <div>
+  <div style="font-size:75px">👑</div>
+  <p>WELCOME TO YOUR LITTLE WORLD</p>
+  <h1>My Princess Savi ❤️</h1>
+  <p>
+   You are my favourite person<br>
+   and my sweetest happiness.
+  </p>
+  <div class="bigheart">💗</div>
+  <button onclick="showScreen('envelopeScreen')">
+   Open Your Love Letter 💌
+  </button>
+ </div>
+</div>
+
+<!-- ENVELOPE SCREEN -->
+<div class="screen hidden" id="envelopeScreen">
+ <div>
+  <h1>A Letter For You</h1>
+  <div class="envelope">💌</div>
+  <p>
+   I have something special to tell you,<br>
+   meri jaan! 🥹
+  </p>
+  <button onclick="showScreen('letterScreen');hearts(35)">
+   Open My Letter ❤️
+  </button>
+ </div>
+</div>
+
+<!-- LOVE LETTER -->
+<div class="screen hidden" id="letterScreen">
+ <div class="card">
+  <div style="font-size:55px">👑💗</div>
+
+  <h2>Happy Princess Day, Savi! ❤️</h2>
+
+  <p>
+   Happy Princess Day, meri jaan! 👑✨
+  </p>
+
+  <p>
+   Tum meri life ka sabse khoobsurat hissa ho.
+   Tumhe kisi crown ki zaroorat nahi hai kyunki
+   tumhari smile, tumhara care aur tumhara pyaar
+   hi tumhe sabse special banata hai.
+  </p>
+
+  <p>
+   Thank you meri life mein aane ke liye aur
+   mujhe itna pyaar dene ke liye.
+  </p>
+
+  <p>
+   Hamesha aise hi muskurati rehna,
+   I love you so much!
+  </p>
+
+  <div style="font-size:45px;margin:20px">🌹💋💕</div>
+
+  <h2>Forever Yours,</h2>
+  <h1>Aksh ❤️</h1>
+
+  <button onclick="showScreen('finalScreen');hearts(60)">
+   One Last Surprise 🥹
+  </button>
+ </div>
+</div>
+
+<!-- FINAL SCREEN -->
+<div class="screen hidden" id="finalScreen">
+ <div>
+  <div style="font-size:75px">💑</div>
+
+  <h1>Aksh ❤️ Savi</h1>
+
+  <div class="bigheart">❤️</div>
+
+  <h2>My Favourite Person</h2>
+
+  <p>
+   No matter how many people<br>
+   I meet in this world,<br>
+   my heart will always choose you.
+  </p>
+
+  <h1>I LOVE YOU SAVI! 💋</h1>
+
+  <h2>Forever & Always ♾️</h2>
+
+  <div style="font-size:45px">🌹💗🌹</div>
+
+  <p>Happy Princess Day, My Queen! 👑</p>
+  <p style="margin-top:30px">Made with love by Aksh ❤️</p>
+ </div>
+</div>
+
+<script>
+
+function unlock(){
+ const entered=document.getElementById("password").value;
+ const message=document.getElementById("message");
+
+ if(entered==="Savi1808"){
+  message.innerText="Correct! Welcome My Queen! ❤️";
+  hearts(25);
+
+  setTimeout(()=>{
+   showScreen("welcomeScreen");
+  },900);
+
+ }else{
+  message.innerText="Oops Princess! Wrong password 😂💕";
+  document.getElementById("password").value="";
+ }
+}
+
+function showScreen(id){
+ document.querySelectorAll(".screen").forEach(screen=>{
+  screen.classList.add("hidden");
+ });
+ document.getElementById(id).classList.remove("hidden");
+ window.scrollTo(0,0);
+}
+
+function hearts(count){
+ for(let i=0;i<count;i++){
+  let h=document.createElement("div");
+  h.className="heart";
+  h.innerText=["❤️","💗","💕","💖","🌹","✨"][
+   Math.floor(Math.random()*6)
+  ];
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(3+Math.random()*5)+"s";
+  h.style.fontSize=(18+Math.random()*25)+"px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),8500);
+ }
+}
+
+</script>
+
+</body>
+</html>
